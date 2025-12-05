@@ -1,58 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lalo</title>
-
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: black;
-            color: white;
-            text-align: center;
-            font-family: sans-serif;
-        }
-
-        h1 {
-            margin-top: 30px;
-        }
-
-        img {
-            max-width: 90%;
-            height: auto;
-            display: block;
-            margin: 20px auto;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lalo</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      image-rendering: pixelated;
+    }
+  </style>
 </head>
 <body>
+  <img src="lalo.png" alt="Lalo" />
 
-    <!-- Música (se activa con toque) -->
-    <audio id="bgm" loop>
-        <source src="audio/1-03. Fragments.mp3" type="audio/mpeg">
-    </audio>
+<audio id="bgm" src="https://raw.githubusercontent.com/Caprisuneek/lalo/main/lalo.mp3" loop></audio>
 
-    <h1>missing you</h1>
+<script>
+    // Reproduce música cuando el usuario toca la imagen
+    const img = document.getElementById("main-image");
+    const bgm = document.getElementById("bgm");
 
-    <!-- Imagen que SOLO se muestra -->
-    <img src="img/lalo.jpg" alt="">
+    img.addEventListener("click", () => {
+        bgm.play().catch(err => console.log("Autoplay bloqueado:", err));
+        // Aquí puedes poner tu redirección si quieres
+        // window.location.href = "https://tusitio.com";
+    });
+</script>
 
-    <script>
-        // Activar música en móviles
-        const audio = document.getElementById("bgm");
 
-        function activarAudio() {
-            audio.play().catch(() => {});
-            document.removeEventListener("touchstart", activarAudio);
-            document.removeEventListener("click", activarAudio);
-        }
 
-        document.addEventListener("touchstart", activarAudio);
-        document.addEventListener("click", activarAudio);
-    </script>
 
+
+
+
+
+
+
+    
 </body>
 </html>
 
