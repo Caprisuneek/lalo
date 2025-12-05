@@ -1,50 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lalo</title>
 
-  
-  <meta charset="UTF-8">
-  <title>lalo</title>
+    <!-- Estilos básicos -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        .contenedor {
+            padding-top: 40px;
+        }
+
+        img {
+            max-width: 90%;
+            height: auto;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-</style>
 
-    background-color: #000;  /* fondo negro */
-    color: white;            /* texto blanco */
-  }
-</style>
+    <!-- Música (se activa con toque) -->
+    <audio id="bgm" loop>
+        <source src="audio/1-03. Fragments" type="audio/mpeg">
+    </audio>
 
-  
-<style>
-  body {
-   <syle>
-    
-  img {
-    display: block;
-    margin: 0 auto;
-  }
+    <div class="contenedor">
+        <h1>lalo</h1>
 
+        <!-- Imagen que lleva a otra página -->
+            <img src="img/lalo.jog" alt="imagen">
+      
 
+    <script>
+        // En móviles, el audio solo puede iniciarse con interacción
+        const audio = document.getElementById("bgm");
 
-  
-<img src="lalo.jpg.png" width="300" style="display:block; margin:auto;">
+        function activarAudio() {
+            audio.muted = false;
+            audio.play().catch(() => {});
+            document.removeEventListener("touchstart", activarAudio);
+            document.removeEventListener("click", activarAudio);
+        }
 
-
-
-  
-<audio id="bgm" autoplay loop>
-  <source src="1-03. Fragments.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-  document.addEventListener('click', () => {
-    const audio = document.getElementById("bgm");
-    audio.muted = false;
-    audio.play();
-  });
-</script>
-
-<h1>missing you</h1>
+        document.addEventListener("touchstart", activarAudio);
+        document.addEventListener("click", activarAudio);
+    </script>
 
 </body>
 </html>
+
+
