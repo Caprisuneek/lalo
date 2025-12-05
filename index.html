@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>missing you</title>
+    <title>lalo</title>
 
     <style>
         body {
@@ -15,8 +15,8 @@
             font-family: sans-serif;
         }
 
-        .contenedor {
-            padding-top: 40px;
+        h1 {
+            margin-top: 30px;
         }
 
         img {
@@ -29,30 +29,32 @@
 </head>
 <body>
 
-    <!-- Música (solo se activa con toque) -->
+    <!-- Música (se activa con toque) -->
     <audio id="bgm" loop>
-        <source src="audio/1-03. Fragments.mp3" type="audio/mpeg">
+        <source src="audio/mimusica.mp3" type="audio/mpeg">
     </audio>
 
-    <div class="contenedor">
-        <h1>lalo</h1>
+    <h1>lalo</h1>
 
-        <!-- La imagen SIN enlace -->
-        <img src="img/lalo.jpg" alt="lalo">
-    </div>
+    <!-- Imagen que SOLO se muestra -->
+    <img src="img/imagen.png" alt="imagen">
 
     <script>
         // Activar música en móviles
         const audio = document.getElementById("bgm");
 
         function activarAudio() {
-            audio.muted = false;
             audio.play().catch(() => {});
             document.removeEventListener("touchstart", activarAudio);
             document.removeEventListener("click", activarAudio);
         }
 
         document.addEventListener("touchstart", activarAudio);
-        document.addEventListener("click", a
+        document.addEventListener("click", activarAudio);
+    </script>
+
+</body>
+</html>
+
 
 
